@@ -110,7 +110,7 @@ info.update({
     'class':'be'
 })
 print(info)
-'''
+
 s ={1,2,3,4,4}
 print(s)
 print(type(s))
@@ -124,3 +124,36 @@ s1 ={1,2,3,4,5}
 s2 = {4,5,6,7,8}
 print(s1.union(s2))
 print(s1.intersection(s2))
+'''
+info = {
+    ("ayaan",'maths'),
+    ('bob','science'),
+    ('ayaan','science'),
+    ('charlie','maths'),
+    ('bob','maths'),
+    ('ayaan','english'),
+    ('charlie','english'),
+}
+unique_courses = set()
+'''
+for tup in info:
+    print(tup)
+    print(tup[0])
+    print(tup[1])
+    unique_courses.add(tup[1])
+
+print(unique_courses) 
+
+for name,courses in info:
+    if(courses == 'english'):
+        print(name)
+        '''
+dict ={ }
+
+for name,courses in info :
+    if(dict.get(name) == None):
+        dict.update({name:set()})
+        dict[name].add(courses)
+    else:
+        dict[name].add(courses)
+print(dict)
