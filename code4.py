@@ -32,15 +32,87 @@ stu1 = Student('rahul',9.2)
 print(stu1.name,stu1.gpa)
 print(Student.college_name)
 print(stu1.college_name)
-        '''
+
 
 class Laptop:
     storage_type = 'ssd'
     def __init__(self,RAM,Storage):
         self.RAM = RAM
         self.Storage = Storage
-    def get_info(self):
+    @classmethod
+    def get_storage_type(cls):
+        print(f"Storage type = {cls.storage_type}")
+    
+    def get_info(self): #INSTANCE METHORD 
         print(f'laptop has {self.RAM} RAM & {self.Storage}{self.storage_type}')
+
+    @staticmethod
+    def calc_discount(price,discount):
+        final_price = price-(price*discount/100)
+        print(f"final price = {final_price}")
+
 l1 = Laptop("16gb","512gb")
 l2 = Laptop("8gb",'256gb')
 l1.get_info()
+Laptop.get_storage_type()
+l1.calc_discount(40_000,20)
+
+
+class Product:
+    count =0 
+    def __init__(self,name,price):
+        self.name = name
+        self.price = price
+        Product.count +=1
+
+
+    def get_info(self):
+        print(f"price of {self.name} is Rs.{self.price}")
+
+    @classmethod
+    def get_products(cls):
+        print(f"total products in store = {cls.count}")
+
+    @staticmethod
+    def cal_disc(price,discount):
+        finl = price -(price*discount/100)
+        print(f"The old price  of the product is {price} and the new discounted price is : {finl} ")
+
+
+
+p1 = Product("phone",20_000)
+p2 = Product("Laptop",50_000)
+p3 = Product("mac book",20_000)
+p4 = Product("phone",20_000)
+
+p1.get_info()
+p2.get_info()
+p3.get_info()
+p4.get_info()
+
+Product.get_products()
+p1.cal_disc(20_000,10)
+'''
+
+
+# OOPS
+##### ENCAPSULATION 
+class BankAccount:
+    def __init__(self,name,balalnce,cvv):
+        self.name = name  # PUBLIC
+        self._balance = balalnce #PROTECTED 
+        self.__cvv = cvv # PRIVATE
+
+
+    def get_cvv(self): #GETTER 
+        return self.__cvv
+    
+    def  set_cvv(self,newcvv):#SETTER 
+        self.__cvv =newcvv
+
+
+
+acc1 = BankAccount("Rahul ",100_000, 123)
+acc1.set_cvv(200)
+print(acc1.name,acc1._balance,acc1.get_cvv())
+        
