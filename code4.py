@@ -92,7 +92,6 @@ p4.get_info()
 
 Product.get_products()
 p1.cal_disc(20_000,10)
-'''
 
 
 # OOPS
@@ -115,4 +114,72 @@ class BankAccount:
 acc1 = BankAccount("Rahul ",100_000, 123)
 acc1.set_cvv(200)
 print(acc1.name,acc1._balance,acc1.get_cvv())
+
+# ANOTHER METHOD TO GET ACCESS OF THIS PRIVATE VALUE
+
+print(acc1._BankAccount__cvv)
+
+
+# INHERITANCE 
+ 
+class Employee:
+    start_time = '10pm'
+    end_time = '6pm'
+
+    def change_time(self,new_end_time):
+        self.end_time = new_end_time
+
+class Teacher(Employee) :
+    def __init__(self,subject):
+        self.subject = subject
+
+class AdminStaff(Employee):
+    def __init__(self,role):
+        self.role = role
         
+t1 = Teacher("Math")
+staff1 = AdminStaff("Manager")
+
+print(staff1.role,staff1.start_time,staff1.end_time)
+
+
+print(t1.start_time,t1.end_time,t1.subject)
+
+
+
+#MULTI LEVEL INHERITANCE
+class College:
+    open_time = "9am"
+    close_time ="4pm"
+
+class Admin(College):
+    def __init__(self,role):
+        self.role = role
+class Accounts(Admin):
+    def __init__(self, salary,role):
+        super().__init__(role)
+        self.salary = salary
+
+acc1 =Accounts(25_000,'CA')
+print(acc1.salary,acc1.role,acc1.open_time,acc1.close_time)
+  
+
+#MULTIPLE INHERITANCE
+class Teacher:
+    def __init__(self,salary):
+            self.salary = salary
+
+class Student:
+    def __init__(self, gpa):
+        self.gpa = gpa
+class TA(Teacher,Student):
+     def __init__(self, salary,gpa,name):
+          super().__init__(salary)
+          Student.__init__(self,gpa)
+        
+          self.name = name
+          
+ta1 =TA(25_000,9,'Ayaan')
+print(ta1.salary,ta1.gpa,ta1.name)
+
+'''
