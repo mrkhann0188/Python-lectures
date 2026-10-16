@@ -182,4 +182,59 @@ class TA(Teacher,Student):
 ta1 =TA(25_000,9,'Ayaan')
 print(ta1.salary,ta1.gpa,ta1.name)
 
+
+# ABSTRACTION 
+from abc import ABC,abstractmethod
+class Animal(ABC):
+    @abstractmethod
+    def make_sound(self):
+        pass
+class Lion(Animal):
+    def make_sound(self):
+        print("Roar")
+
+lion = Lion()
+lion.make_sound()
+
+class Cow(Animal):
+    def make_sound(self):
+        print("Moo")
+
+cow1 = Cow()
+cow1.make_sound()
+
+class Cat(Animal):
+    def make_sound(self):
+        print("Meoww")
+cat1 = Cat()
+cat1.make_sound()
+
+# POLYMORPHISMM
+#FUNCTION OVERIDING 
+class Employee:
+    def get_designation(self):
+        print("designation = Employee")
+
+class Teacher(Employee):
+     def get_designation(self):
+         print("designation = Teacher ")
+t1 = Teacher()
+t1.get_designation()
+
+
 '''
+#DUCK TYPE POLYMORPHISM 
+
+class Teacher():
+    def get_desg(self):
+        print("Desg = Teacher")
+
+class Accountant():
+    def get_desg(self):
+        print("Desg = Accountant")
+
+t1 = Teacher()
+t1.get_desg()
+
+acc1 = Accountant()
+acc1.get_desg()
