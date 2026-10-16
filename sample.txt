@@ -1,0 +1,3 @@
+123t to overwrite 
+ the complete data.This is the append function this is used to override the text in the file 
+This is the append function this is used to override the text in the file 
